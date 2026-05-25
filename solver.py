@@ -31,9 +31,14 @@ def solve(puzzle_id: str) -> list[str] | None:
 
     g_score: dict[frozenset, int] = {start: 0}
     parent:  dict[frozenset, tuple[frozenset, str] | None] = {start: None}
+    visited: set[frozenset] = set()
 
     while heap:
         _, g, _, state, oranges = heapq.heappop(heap)
+
+        if state in visited:
+            continue
+        visited.add(state)
 
         if g > g_score.get(state, float("inf")):
             continue  # stale entry
