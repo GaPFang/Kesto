@@ -9,7 +9,7 @@ def _heuristic(oranges: list, targets: frozenset) -> int:
     """Admissible lower bound: each ply moves every block one step, so the
     minimum plies needed is at least the distance of the furthest orange from
     its nearest target."""
-    return max(
+    return sum(
         min(abs(r - tr) + abs(c - tc) for (tr, tc) in targets)
         for (r, c) in oranges
     )
