@@ -76,12 +76,15 @@ def _reconstruct(parent: dict, state: frozenset) -> list[str]:
 
 if __name__ == "__main__":
     import sys
+    import time
     from puzzles import PUZZLES
 
     pid = sys.argv[1] if len(sys.argv) > 1 else next(iter(PUZZLES))
     print(f"Solving puzzle {pid} ...")
+    t0 = time.perf_counter()
     result = solve(pid)
+    elapsed = time.perf_counter() - t0
     if result is None:
-        print("No solution found.")
+        print(f"No solution found. ({elapsed*1000:.1f} ms)")
     else:
-        print(f"Solved in {len(result)} moves: {result}")
+        print(f"Solved in {len(result)} moves in {elapsed*1000:.1f} ms: {result}")
