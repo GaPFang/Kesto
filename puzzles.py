@@ -1,6 +1,13 @@
 # Each puzzle: rows/cols define grid size.
 # Coordinates are (row, col), 0-indexed from top-left.
 PUZZLES: dict[str, dict] = {
+    "20260526": {
+        "rows": 8,
+        "cols": 8,
+        "obstacles": [(0,7),(3,4),(4,3),(7,0)],
+        "oranges":   [(0,2),(1,1),(1,2),(1,3),(2,0),(2,1),(2,2),(3,1)],
+        "targets":   [(4,6),(5,5),(5,6),(5,7),(6,4),(6,5),(6,6),(7,5)],
+    },
     "20260525": {
         "rows": 8,
         "cols": 8,
